@@ -11,7 +11,7 @@ public class passwordGenerator {
 	// TODO Auto-generated method stub
 
 	private static final String nameRegex = "^[\\p{L} .'-]+$";
-	private static final String nameRegexInt = "[0-2]{2}[0] {}";
+	private static final String nameRegexInt = "[0-9]{4}";
 	
 
 	public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class passwordGenerator {
 	}
 
 	public static String checkValidName(Scanner sc) {
-		System.out.print("Enter name");
+		System.out.println("Enter name");
 		String name = sc.nextLine();
 
 		if (!name.matches(nameRegex)) {
@@ -42,8 +42,8 @@ public class passwordGenerator {
 
 		System.out.println("Enter date of year");
 		String year = sc.nextLine();
-		if (Integer.parseInt(year)>2021 &&Integer.parseInt(year)<0) {
-			
+		if (!year.matches(nameRegexInt)) {
+
 			System.out.println("enter valid year");
 			year(sc);
 		}
@@ -61,7 +61,7 @@ public class passwordGenerator {
 
 		} else if (answer.equalsIgnoreCase("no")) {
 
-			petName=carName(sc, petName);
+			petName = carName(sc, petName);
 
 		} else {
 			petName(sc);
@@ -83,9 +83,8 @@ public class passwordGenerator {
 			System.out.println("type your city name");
 			petName = sc.nextLine();
 
-		}
-		else {
-			carName(sc,petName);
+		} else {
+			carName(sc, petName);
 		}
 		return petName;
 
